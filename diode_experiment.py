@@ -56,7 +56,7 @@ for index in range(0, 1024, 1):
     L_gem_I_err.append(gem_I_err)
 
     
-    print(f'gem U = {U_gem:.2f} +- {gem_U_err:.2f}V, gem I = {I_gem:.2f} +- {gem_I_err:.2f}A')
+    print(f'gem U = {U_gem:.2f} +- {gem_U_err:.2f}V, gem I = {I_gem:.2g} +- {gem_I_err:.2g}A')
 
 device.query('OUT:CH0 0')
 
