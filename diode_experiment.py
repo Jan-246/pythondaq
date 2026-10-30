@@ -16,16 +16,24 @@ print(identification)
 
 
 index = 0
+L_U_LED = []
+L_I_LED = []
 while index < 1024:
     index += 10
     device.query(f'OUT:CH0 {index}')
     time.sleep(0.01)
     print(index)
     U_totaal = index * (3.3/1023)
-    U_lampje = int(device.query('MEAS:CH1?'))*(3.3/1023) - int(device.query('MEAS:CH2?'))*(3.3/1023)
-    I_lampje = int(device.query('MEAS:CH2?')) / 220
-    print(f'spanning lampje: {U_lampje} V')
-    print(f'spanning totaal: {U_totaal} V')
-    print(f'stroom lampje: {I_lampje} A')
+    U_LED = int(device.query('MEAS:CH1?'))*(3.3/1023) - int(device.query('MEAS:CH2?'))*(3.3/1023)
+    I_LED = int(device.query('MEAS:CH2?')) / 220
+    print(f'U totaal: {U_totaal:.2f} V')
+    print(f'U LED: {U_lampje:.2f} V')
+    print(f'I LED: {I_lampje:.2f} A')
+    L_U_LED.append(U_LED)
+    L_I_LED.append(I_LED)
+
+
+
+
 
     
